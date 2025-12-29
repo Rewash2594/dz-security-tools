@@ -1,0 +1,13 @@
+identities:
+  - user: alice
+    roles: [developer]
+
+  - service: ci_pipeline
+    runs_as: service_account_ci
+
+trust:
+  - from: developer
+    to: ci_pipeline
+
+  - from: service_account_ci
+    to: admin_role
